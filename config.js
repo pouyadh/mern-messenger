@@ -12,7 +12,7 @@ exports.corsConfig = {
   credentials: true,
 };
 
-exports.appConfig = { port: process.env.PORT || 80 };
+exports.appConfig = { port: process.env.PORT || 8080 };
 
 exports.socketConfig = {
   options: {
@@ -24,5 +24,5 @@ exports.socketConfig = {
 };
 
 exports.tokenConfig = {
-  secret: process.env.TOKEN_SECRET_KEY,
+  secret: process.env.TOKEN_SECRET_KEY || "ThisIsTheFallbackSecret",
 };
