@@ -17,6 +17,9 @@ const cookieParserIo = require("./middleware/cookie-parser-io");
 const authIo = require("./middleware/auth-io");
 const conversationHandlers = require("./handlers/conversationHandlers");
 const colors = require("colors");
+const path = require("path");
+
+console.log(__dirname);
 
 // Database
 mongoose
@@ -41,7 +44,10 @@ const conversationRoutes = require("./routes/conversationRoutes");
 
 app.use("/api/user", userRoutes);
 app.use("/api/conversation", auth, conversationRoutes);
-app.get("/", (req, res, next) => res.send(`Running...`));
+app.use(express.static(path.join(__dirname, "client", "build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 const server = app.listen(appConfig.port, () => {
   console.log(`Server is running on port: ${appConfig.port}`);
