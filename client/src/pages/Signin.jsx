@@ -1,11 +1,11 @@
-import { Button, Container, Paper, Stack, Typography } from "@mui/material";
 import * as React from "react";
 import LogoText from "../components/Logo/LogoText";
-
-import Input from "../components/Input/Input";
-import LinearProgress from "../components/Progress/LinearProgress";
+import { Button, Container, Paper, Stack, Typography } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
+import Input from "../components/Input/Input";
+import LinearProgress from "../components/Progress/LinearProgress";
 
 const initialValues = {
   username: "",
@@ -33,6 +33,7 @@ const handleSubmit = async (values) => {
 };
 
 const Signin = () => {
+  const navigate = useNavigate();
   return (
     <Container maxWidth="xs" sx={{ pt: "auto" }}>
       <Paper
@@ -82,7 +83,9 @@ const Signin = () => {
               </Form>
             )}
           </Formik>
-          <Button variant="text">Register</Button>
+          <Button variant="text" onClick={() => navigate("/signup")}>
+            Signup
+          </Button>
         </Stack>
       </Paper>
     </Container>
