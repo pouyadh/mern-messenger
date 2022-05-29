@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import Loading from "./pages/Loading";
 import Register from "./pages/Register";
+import Signin from "./pages/Signin";
 
 const theme = createTheme({
   palette: {
@@ -28,6 +29,7 @@ function App() {
         <Routes>
           <Route path="/loading" element={<Loading />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/signin" element={<Signin />} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>
