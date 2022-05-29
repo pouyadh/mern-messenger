@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import Loading from "./pages/Loading";
+import Register from "./pages/Register";
+
+const theme = createTheme({
+  palette: {
+    mode: "light",
+    background: {
+      default: "#f2f2f2",
+    },
+  },
+  typography: {
+    fontFamily: '"Nunito" , sans-serif',
+    fontWeightLight: 400,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 800,
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Routes>
+          <Route path="/loading" element={<Loading />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
