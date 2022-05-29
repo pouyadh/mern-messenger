@@ -1,5 +1,6 @@
-import { Container, LinearProgress, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import React from "react";
+import LinearProgress from "../components/Progress/LinearProgress";
 import LogoIcon from "../components/Logo/LogoIcon";
 import LogoText from "../components/Logo/LogoText";
 
@@ -21,9 +22,7 @@ const Loading = () => {
     <Container disableGutters sx={styles.container}>
       <LogoIcon sx={{ fontSize: "128px", mb: 4 }} />
       <LogoText height="50px" />
-      <LinearProgress
-        sx={{ width: "96px", height: "10px", borderRadius: "10px", mt: 10 }}
-      />
+      <LinearProgress sx={{ width: "96px", mt: 10 }} />
       <Typography variant="subtitle2" color="grey.600" sx={{ mt: 4 }}>
         V{appVersion}
       </Typography>
