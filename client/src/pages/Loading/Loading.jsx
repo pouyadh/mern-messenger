@@ -1,8 +1,8 @@
 import { Container, Typography } from "@mui/material";
 import React from "react";
-import LinearProgress from "../components/Progress/LinearProgress";
-import LogoIcon from "../components/Logo/LogoIcon";
-import LogoText from "../components/Logo/LogoText";
+import LinearProgress from "../../components/Progress/LinearProgress";
+import LogoIcon from "../../components/Logo/LogoIcon";
+import LogoText from "../../components/Logo/LogoText";
 
 const styles = {
   container: {

@@ -1,15 +1,17 @@
 import * as React from "react";
-import LogoText from "../components/Logo/LogoText";
+import LogoText from "../../components/Logo/LogoText";
 import { Button, Container, Paper, Stack, Typography } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import Input from "../components/Input/Input";
-import LinearProgress from "../components/Progress/LinearProgress";
+import Input from "../../components/Input/Input";
+import LinearProgress from "../../components/Progress/LinearProgress";
 
 const initialValues = {
   username: "",
+  email: "",
   password: "",
+  cpassword: "",
 };
 
 const validationSchema = Yup.object({
@@ -17,9 +19,13 @@ const validationSchema = Yup.object({
     .min(4, "At least 4 character")
     .max(50, "Maximum 50 character")
     .required("Required"),
+  email: Yup.string().email("Should be valid").required("Required"),
   password: Yup.string()
     .min(8, "At least 8 character")
     .max(50, "Maximum 50 character")
+    .required("Required"),
+  cpassword: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Passwords must match")
     .required("Required"),
 });
 
@@ -32,7 +38,7 @@ const handleSubmit = async (values) => {
   });
 };
 
-const Signin = () => {
+const Signup = () => {
   const navigate = useNavigate();
   return (
     <Container maxWidth="xs" sx={{ pt: "auto" }}>
@@ -57,7 +63,7 @@ const Signin = () => {
                 <Stack direction="column" spacing={2}>
                   <Typography variant="h5" alignSelf="start">
                     {isSubmitting && <LinearProgress sx={{ height: "5px" }} />}
-                    Signin
+                    Register
                   </Typography>
                   <Field
                     component={Input.Username}
@@ -67,9 +73,20 @@ const Signin = () => {
                   />
 
                   <Field
+                    component={Input.Email}
+                    type="email"
+                    name="email"
+                    label="Email"
+                  />
+                  <Field
                     component={Input.Password}
                     name="password"
                     label="Password"
+                  />
+                  <Field
+                    component={Input.Password}
+                    name="cpassword"
+                    label="Confirm Password"
                   />
 
                   <Button
@@ -77,14 +94,14 @@ const Signin = () => {
                     disabled={isSubmitting}
                     onClick={submitForm}
                   >
-                    Signin
+                    Register
                   </Button>
                 </Stack>
               </Form>
             )}
           </Formik>
-          <Button variant="text" onClick={() => navigate("/signup")}>
-            Signup
+          <Button variant="text" onClick={() => navigate("/signin")}>
+            Signin
           </Button>
         </Stack>
       </Paper>
@@ -92,4 +109,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Signup;

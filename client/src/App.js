@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import Loading from "./pages/Loading";
-import Signup from "./pages/Signup";
-import Signin from "./pages/Signin";
+import Loading from "./pages/Loading/Loading";
+import Signup from "./pages/Signup/Signup";
+import Signin from "./pages/Signin/Signin";
 
 const theme = createTheme({
   palette: {
