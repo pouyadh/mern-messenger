@@ -38,7 +38,7 @@ const handleSubmit = async (values) => {
   });
 };
 
-const Register = () => {
+const Signup = () => {
   return (
     <Container maxWidth="xs" sx={{ pt: "auto" }}>
       <Paper
@@ -106,4 +106,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Signup;

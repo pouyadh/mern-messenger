@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import Loading from "./pages/Loading";
-import Register from "./pages/Register";
+import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 
 const theme = createTheme({
@@ -28,7 +28,7 @@ function App() {
         <CssBaseline />
         <Routes>
           <Route path="/loading" element={<Loading />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
         </Routes>
       </ThemeProvider>
