@@ -26,3 +26,5 @@ yarn-error.log*
 *.orig
 .idea/
 .vscode/
+
+liara.json
